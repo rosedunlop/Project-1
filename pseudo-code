@@ -1,0 +1,123 @@
+/* // SAVE POPPY THE PUPPY PSEUDOCODE START
+
+// HTML PSEUDOCODE
+// There will be a header, body, and main, and footer. 
+// The header will contain the h1
+// The main will then contain two different divs that will split the page 
+// The first div will be called game-specifics: 
+     // this will contain two buttons - a start and a restart button which will be contained in a div wrapper called button-container 
+     // Then there will be another div called game-rules containing the Game rules 
+// The second div will be called game-content:
+    // this will contain the grid which will be made with 10/10 specifics so it will have 100 divs
+    // this will either be made in the html or javascript - i haven't decided yet which one. 
+
+// finally there will be a footer:
+    // This will have a div called lives-container and within that will be a h2/3
+    // This will also have a div called result-container - which will be an h3/4
+
+CSS PSEUDOCODE 
+// The header will most like be an imported font from google fonts and will be big and stand out on the page
+// The background of the the whole page will either be baby pink or baby blue and I may choose an image with lots of dog bones on it to be the background
+// The header will centered and at the top of the page 
+// The main will be flexed to display the two divs side by side both taking up 50 percent of the page
+// The game specifics div and the game-content divs will both need to display their content within them in a column
+// Within the game-specifics div:
+// The button container will be flexed - to display side by side in a row
+// The buttons will be given a colour and a cool font that stand out on the page 
+// Grid :
+// The grid will have numerous background classes
+   // grass background colour for the non-river cells
+   // One for the puppy player - img 
+   // one for the random obstacles - img 
+   // one for the river - which i will start as a background-colour but may try and improve this to be an image
+   // one for the rubber dingys - img 
+   // one for the puppy snatcher - img 
+   // possible one for the kennel - img 
+// Footer will be display flex and will be spaced apart to appear below the game specifics and the game content. 
+// Lives and results will have a cool font and stand out colour. 
+
+JS PSEUDOCODE
+
+// Possible first function to create the grid - or I will do this in HTML
+// If i create rows with arrays and give them each a class of what I want it to look like:
+  // so for the four river rows they will have a background colour of blue
+  // for the two rows at the start they will have a mixture of just a background colour of grass and then an obstacle class. 
+  // for the random snatchers moving I might create an empty array and use a random index to randomly generate where those snatcher will appear and I will have a set interval for this too. 
+  // ** Similarly for the rubber dingys I want these to appear randomly along the river - not sure if this is possible as I don't want this to break the game - maybe start with them being staticly positioned and then try and move them randomly**
+  // 
+  // For the start game button, it should call one big main function - so possibly I should have one big start game function and have the rest within that
+  // Create a reset button function - have a function within that which when clicked would restart the game
+  
+  // I would assign the starting position cell for the player - so I would pick the cell index [95] and assign the player.classList.add('puppy')
+
+  // I would create a move function 
+  // function move(newIndex){
+      cells[startingPosition].classList.remove('puppy')
+      cells[newPosition].classList.add('puppy')
+      startingPosition = newPosition
+    }
+    
+    // I would create a movePlayer function, which I would then call within each of the arrow functions. 
+    // const movePlayer = (changeInIndex, isIndexAtLimit) => {
+        const newIndex = startPosition + changeInIndex
+        
+        move(newIndex)
+    }
+    // I would create a cannot move function - when you reach the end of the grid 
+    // I would also then call this function when a cell contains an obstacle the player cannot be moved
+    // So if cells[newIndex] contains class list - 'obstacle' - {perform the cannot move function}
+    
+    // I would make four functions for each movement:
+    // const handleArrowUp = () => {
+        // This would have a function to check if the player is on the top edge
+        // It would then pass the movePlayer function afterwards. 
+    }
+    // const handleArrowDown = () => {
+        // This would have a function to check if the player is on the bottom edge
+        // It would then pass the movePlayer function afterwards.
+    }
+    // const handleArrowRight = () => {
+        // This would have a function to check if the player is on the right edge
+        // It would then pass the movePlayer function afterwards.
+    }
+    // const handleArrowLeft = () => {
+        // This would have a function to check if the player is on the left edge
+        // It would then pass the movePlayer function afterwards.
+    }
+    
+    // add an event listener to the document to listen for arrow keys:
+    // document.addEventListener('keydown', function (event) {
+         switch (event.key) {
+      case 'ArrowUp':
+        handleArrowUp()
+        break
+      case 'ArrowLeft':
+        handleArrowLeft()
+        break
+      case 'ArrowDown':
+        handleArrowDown()
+        break
+      case 'ArrowRight':
+        handleArrowRight()
+        break
+    }
+  })
+    
+  // I also need to alter the amount of lives when the player reaches an obstacle and loses. 
+  // create a function which will select the p using document.querySelector and then assign lives to equal 3
+  // if statement - if the player's position contains a class of an obstacle - lives decrease by 1. 
+  // add that to the HTML - using textContent. Else(return)
+  
+  //This could be an end game function:
+  //Also should have if lives equal zero - then it alerts the user that they have lost the game! 
+
+
+
+  
+
+
+
+
+
+
+*/
