@@ -1,4 +1,4 @@
-/* // SAVE POPPY THE PUPPY PSEUDOCODE START
+<!-- /* // SAVE POPPY THE PUPPY PSEUDOCODE START
 
 // HTML PSEUDOCODE
 // There will be a header, body, and main, and footer. 
@@ -9,6 +9,7 @@
      // Then there will be another div called game-rules containing the Game rules 
 // The second div will be called game-content:
     // this will contain the grid which will be made with 10/10 specifics so it will have 100 divs
+    // create a grid div - containing 100 divs. 
     // this will either be made in the html or javascript - i haven't decided yet which one. 
 
 // finally there will be a footer:
@@ -25,6 +26,32 @@ CSS PSEUDOCODE
 // The button container will be flexed - to display side by side in a row
 // The buttons will be given a colour and a cool font that stand out on the page 
 // Grid :
+/
+// .grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr)
+    grid-template-rows: repeat(10, 1fr)
+    height: 1000px
+    width: 1000px
+}
+.grid div {
+    border: 1px solid black
+}
+.grid .obstacle {
+
+}
+.grid .free {
+
+}
+.grid .river{
+
+}
+.grid .rubberdingys{
+
+}
+.grid .puppy-snatcher{
+
+}
 // The grid will have numerous background classes
    // grass background colour for the non-river cells
    // One for the puppy player - img 
@@ -38,7 +65,18 @@ CSS PSEUDOCODE
 
 JS PSEUDOCODE
 
-// Possible first function to create the grid - or I will do this in HTML
+Creating arrays and mapping each cells. 
+// const rowOne = ['river' river' 'river'] for example
+//const gridMap = rowOne.concat(rowTwo).concat(rowThree).concat(rowFour)
+
+I will do this near the end make a static version of the game first: Come up with a function that maps the obstacles to jump to 2 cells - using a set interval 
+
+const cells = document.querySelectorAll('.grid div')
+cells.forEach(
+    (cell, i) => {
+        cell.classList.add(gridMap[i])
+    })
+
 // If i create rows with arrays and give them each a class of what I want it to look like:
   // so for the four river rows they will have a background colour of blue
   // for the two rows at the start they will have a mixture of just a background colour of grass and then an obstacle class. 
@@ -63,7 +101,15 @@ JS PSEUDOCODE
         
         move(newIndex)
     }
-    // I would create a cannot move function - when you reach the end of the grid 
+
+    // Create a checkifobstacle function:
+    // if it is a dingy - then this is good and you want to move with that dingy, do not decrease lives
+    // if it is an obstacle - then this is bad and you want to stop the player moving - call cannotMove function maybe, decrease lives by 1
+    // if it is a puppy-snatcher - then this is bad and you want to stop the player moving cannotmove function maybe, decrease lives by 1
+
+
+    // I would create a cannot move function - 
+    // One for when you reach the end of the grid 
     // I would also then call this function when a cell contains an obstacle the player cannot be moved
     // So if cells[newIndex] contains class list - 'obstacle' - {perform the cannot move function}
     
@@ -120,4 +166,4 @@ JS PSEUDOCODE
 
 
 
-*/
+*/ -->
