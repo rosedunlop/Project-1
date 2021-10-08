@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+header {
+  text-align: center;
+  padding-top: 20px;
+}
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.game-specifics {
+  width: 500px;
+  height: 300px;
+  position: relative;
+  left: 100px;
+  top: 20px;
+}
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  height: 700px;
+  width: 700px;
+}
+.grid div {
+  border: 1px solid black;
+}
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.lives-wrapper {
+  padding-left: 320px;
+}
+.result-wrapper {
+  padding-right: 320px;
+  padding-top: 20px;
+}
+.river {
+  background-color: cornflowerblue;
+}
+.free {
+  background-color: green;
+}
+.obstacles {
+  background-image: url();
+  background-color: red;
+}
+.rubber-dingys {
+  background-image: url();
+  background-color: orange;
+}
+.puppy-snatcher {
+  background-image: url();
+  background-color: black;
+}
+.puppy {
+  background-image: url(https://images.assetsdelivery.com/compings_v2/betka82/betka822102/betka82210200006.jpg);
+}
