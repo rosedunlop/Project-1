@@ -54,11 +54,11 @@ footer {
 .free {
   background-color: green;
 }
-.obstacles {
+.obstacle {
   background-image: url();
   background-color: red;
 }
-.rubber-dingys {
+.rubber-dingy {
   background-image: url();
   background-color: orange;
 }
@@ -67,5 +67,9 @@ footer {
   background-color: black;
 }
 .puppy {
-  background-image: url(https://images.assetsdelivery.com/compings_v2/betka82/betka822102/betka82210200006.jpg);
+  background-image: url(/Froggy/images/lab.jpg);
+  background-size: contain;
+}
+.kennel {
+  background-color: blueviolet;
 }
