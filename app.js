@@ -55,6 +55,55 @@ cells.forEach(
         cell.classList.add(gridMap[i])
     })
 
+
+const changeRiverRows = () => {
+    cells.forEach(
+        (cell) => {
+            if(cell.classList.contains('rubber-dingy')){
+                cell.classList.remove('rubber-dingy')
+                cell.classList.add('river')
+            }else if(cell.classList.contains('river')){
+                cell.classList.remove('river')
+                cell.classList.add('rubber-dingy')
+            }
+        }   
+    )  
+}
+setInterval(changeRiverRows, 2000)
+
+let i = 10
+let currentSnatcherPosition = cells[i]
+
+
+const moveSnatcherUp = () => {
+    if (i >= 10 && i < 29){
+        cells[i].classList.remove('puppy-snatcher')
+        i += 1
+        cells[i].classList.add('puppy-snatcher')
+        currentSnatcherPosition = cells[i]
+        console.log(i)
+    } else{
+        return
+    }
+}
+
+
+// setInterval(moveSnatcherUp, 500)
+
+const moveSnatcherDown = () => {
+    if (i >= 29){
+        cells[i].classList.remove('puppy-snatcher')
+        i -= 1
+        cells[i].classList.add('puppy-snatcher')
+        currentSnatcherPosition = cells[i]
+        console.log(i)
+    }else {
+        return
+    }
+}
+// setInterval(moveSnatcherDown, 500)
+
+
 // Here I am declaring where the player will start - in a let as it needs to be able to change:
 let startingPosition = 95
 console.log(startingPosition)
@@ -63,8 +112,6 @@ const addPuppyAtStart = () => {
     cells[startingPosition].classList.add('puppy')
 }
 addPuppyAtStart()
-
-const grabStartButton = document.querySelector('.start-button')
 
 
 // Now when a key is pressed and I want the player to move I will create a function where it removes from the old position to new one:
