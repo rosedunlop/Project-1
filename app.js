@@ -1,6 +1,6 @@
 const rowOne = ['free', 'free', 'free', 'free', 'kennel', 'free', 'free', 'free', 'free', 'free']
-const rowTwo = ['free', 'free', 'free', 'puppy-snatcher', 'free', 'free', 'free', 'free', 'free', 'free']
-const rowThree = ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'puppy-snatcher', 'free', 'free']
+const rowTwo = ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free']
+const rowThree = ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free']
 let rowFour = []
 let rowFive = []
 let rowSix = []
@@ -71,37 +71,40 @@ const changeRiverRows = () => {
 }
 setInterval(changeRiverRows, 2000)
 
-let i = 10
-let currentSnatcherPosition = cells[i]
+cells[10].classList.add('puppy-snatcher')
 
 
-const moveSnatcherUp = () => {
-    if (i >= 10 && i < 29){
-        cells[i].classList.remove('puppy-snatcher')
-        i += 1
-        cells[i].classList.add('puppy-snatcher')
-        currentSnatcherPosition = cells[i]
-        console.log(i)
-    } else{
-        return
-    }
-}
+const moveSnatcher = setInterval(() => {
+    gridMap.map(cell => {
+        console.log(cell)
+     if(cell.classList.contains('puppy-snatcher')) {
+         if (gridMap[28].classList.contains('puppy-snatcher')){
+             gridMap[28].classList.remove('puppy-snatcher')
+             gridMap[10].classList.add('puppy-snatcher')
+            }else{
+                let index = gridMap.indexOf(cell)
+                gridMap[index + 1].classList.add('puppy-snatcher')
+            }
+     }
+    })   
+})
+
 
 
 // setInterval(moveSnatcherUp, 500)
 
-const moveSnatcherDown = () => {
-    if (i >= 29){
-        cells[i].classList.remove('puppy-snatcher')
-        i -= 1
-        cells[i].classList.add('puppy-snatcher')
-        currentSnatcherPosition = cells[i]
-        console.log(i)
-    }else {
-        return
-    }
-}
-// setInterval(moveSnatcherDown, 500)
+// const moveSnatcherDown = () => {
+//     if (i >= 29){
+//         cells[i].classList.remove('puppy-snatcher')
+//         i -= 1
+//         cells[i].classList.add('puppy-snatcher')
+//         currentSnatcherPosition = cells[i]
+//         console.log(i)
+//     }else {
+//         return
+//     }
+// }
+setInterval(moveSnatcherDown, 500)
 
 
 // Here I am declaring where the player will start - in a let as it needs to be able to change:
