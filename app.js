@@ -1,14 +1,52 @@
 const rowOne = ['free', 'free', 'free', 'free', 'kennel', 'free', 'free', 'free', 'free', 'free']
 const rowTwo = ['free', 'free', 'free', 'puppy-snatcher', 'free', 'free', 'free', 'free', 'free', 'free']
 const rowThree = ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'puppy-snatcher', 'free', 'free']
-const rowFour = ['river', 'river', 'rubber-dingy', 'river', 'river', 'river', 'river', 'river', 'river', 'river']
-const rowFive = ['river', 'river', 'rubber-dingy', 'river', 'river', 'river', 'river', 'river', 'river', 'river']
-const rowSix = ['river', 'river', 'rubber-dingy', 'river', 'river', 'river', 'river', 'river', 'river', 'river']
-const rowSeven = ['river', 'river', 'rubber-dingy', 'river', 'river', 'river', 'river', 'river', 'river', 'river']
+let rowFour = []
+let rowFive = []
+let rowSix = []
+let rowSeven = []
 const rowEight = ['free', 'obstacle', 'free', 'free', 'obstacle', 'free', 'free', 'obstacle', 'free', 'free']
 const rowNine = ['obstacle', 'free', 'free', 'obstacle', 'free', 'free', 'obstacle', 'free', 'free', 'free']
 const rowTen = ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free']
 
+
+const changingRows = Array.from({length: 10}).fill('river')
+console.log(changingRows)
+
+rowFour = changingRows.map((element, index) =>{
+    if(index % 2 === 0){
+        return 'river'
+    }
+    return 'rubber-dingy'
+})
+console.log(rowFour)
+
+rowFive = changingRows.map((element, index) =>{
+    if(index % 2 === 0){
+        return 'rubber-dingy'
+    }
+    return 'river'
+})
+console.log(rowFive)
+
+rowSix = changingRows.map((element, index) =>{
+    if(index % 2 === 0){
+        return 'river'
+    }
+    return 'rubber-dingy'
+})
+console.log(rowSix)
+
+rowSeven = changingRows.map((element, index) =>{
+    if(index % 2 === 0){
+        return 'rubber-dingy'
+    }
+    return 'river'
+})
+console.log(rowSeven)
+
+
+        
 const gridMap = rowOne.concat(rowTwo).concat(rowThree).concat(rowFour).concat(rowFive).concat(rowSix).concat(rowSeven).concat(rowEight).concat(rowNine).concat(rowTen)
 
 const cells = document.querySelectorAll('.grid div')
