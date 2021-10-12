@@ -171,22 +171,9 @@ const move = (newIndex) => {
 // Here I am creating the move player function which takes in a parameter of the change in Index and adds that to the startingPosition - which then moves it to that cell
 // Here we are storing the new cell and checking if it contains an obstacle or puppy snatcher
 
-// const cannotMovePlayer = (newIndex) => {
-//     const newCell = cells[newIndex]
-//     if(newCell.classList.contains('obstacle')){
-//         console.log('obstacle encountered')
-//         return
-//     }else if (newCell.classList.contains('puppy-snatcher')){
-//         console.log('puppy snatcher encountered')
-//         return
-//     }
-// }
-
 let lives = 3
 const grabLives = document.querySelector('span')
 grabLives.textContent = `${lives}`
-
-
 const grabResult = document.querySelector('.result')
 
 const movePlayer = (changeInIndex, isIndexAtLimit) => {
@@ -233,7 +220,8 @@ const movePlayer = (changeInIndex, isIndexAtLimit) => {
         return
     } else if (newCell.classList.contains('rubber-dingy')){
         console.log('rubber dingy encountered')
-        move(newIndex)
+        move(newIndex + 2)
+        console.log(newIndex)
     }
 
     console.log(startingPosition, newIndex)
@@ -244,7 +232,7 @@ const movePlayer = (changeInIndex, isIndexAtLimit) => {
     const handleArrowUp = () => {
         // This would have a function to check if the player is on the top edge
         // It would then pass the movePlayer function afterwards.
-        const playerCannotMoveUp = (startingPosition) => startingPosition < 10
+        const playerCannotMoveUp = (startingPosition) => startingPosition < 10 
         movePlayer(-10, playerCannotMoveUp) 
         console.log('handleArrowUp')
     }
