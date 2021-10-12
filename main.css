@@ -7,6 +7,10 @@ header {
   text-align: center;
   padding-top: 20px;
 }
+h1 {
+  color: pink;
+  font-size: 60px;
+}
 main {
   display: flex;
   flex-direction: row;
@@ -68,15 +72,12 @@ footer {
   background-size: cover;
   background-color: green;
 }
-.rubber-dingy::before {
-  content: "";
-  background-image: url();
-  background-color: orange;
-  margin: 5%;
-  display: block;
-  height: 90%;
-  width: 90%;
-  border-radius: 50%;
+
+.rubber-dingy {
+  background-image: url(./images/rubber-dingy.png);
+  background-repeat: none;
+  background-size: cover;
+  background-color: rgb(74, 146, 241);
 }
 .puppy-snatcher {
   background-image: url(./images/horror-snatcher.png);

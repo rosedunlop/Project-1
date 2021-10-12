@@ -86,13 +86,14 @@ function startGame (){
                           cells[95].classList.add('puppy')
                           move(95)
                           return
-                        }else{
+                     }else if (lives === 0){
                             grabResult.textContent = 'Game Over.'
                             cells[currentIndex].classList.remove('puppy')
+                            move(95)
                             alert('Game Over.')      
                             return   
-                        }       
-                    } 
+                    }       
+                    }
                 } 
                 cells[currentIndex + 1].classList.add('rubber-dingy')
                 // Add the rubber dingy plus one along the row too 
@@ -206,7 +207,7 @@ function startGame (){
               grabLives.textContent = `${lives}`
               grabResult.textContent = `You lost a life! You have ${lives} lives left.`
     
-            } else {
+            } else if(lives === 0) {
                 grabResult.textContent = 'Game over.'
                 alert('Game Over!')
             }
@@ -217,7 +218,7 @@ function startGame (){
                lives -= 1
                grabLives.textContent = `${lives}`
                grabResult.textContent = `You lost a life! You have ${lives} lives left.`
-            } else {
+            } else if (lives === 0) {
                 grabResult.textContent = 'Game over.'
                 alert('Game Over!')
             }
@@ -228,7 +229,7 @@ function startGame (){
                lives -= 1
                grabLives.textContent = `${lives}` 
                grabResult.textContent = `You lost a life! You have ${lives} lives left.`
-            } else {
+            } else if (lives === 0) {
                 grabResult.textContent = 'Game Over.'
                 alert('Game Over!')
             }
