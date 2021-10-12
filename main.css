@@ -58,10 +58,17 @@ footer {
   background-image: url();
   background-color: red;
 }
-.rubber-dingy {
+.rubber-dingy::before {
+  content: "";
   background-image: url();
   background-color: orange;
+  margin: 5%;
+  display: block;
+  height: 90%;
+  width: 90%;
+  border-radius: 50%;
 }
+
 .puppy-snatcher {
   background-image: url();
   background-color: black;
