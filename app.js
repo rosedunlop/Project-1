@@ -56,8 +56,13 @@ cells.forEach(
     })
 
 
-const changeRiverRows = () => {
-    cells.forEach(
+const fourthRow = document.querySelectorAll('.row-four')
+const fifthRow = document.querySelectorAll('.row-five')
+const sixthRow = document.querySelectorAll('.row-six')
+const seventhRow = document.querySelectorAll('.row-seven')
+
+const changeFourthRow = setInterval(() => {
+    fourthRow.forEach(
         (cell) => {
             if(cell.classList.contains('rubber-dingy')){
                 cell.classList.remove('rubber-dingy')
@@ -68,8 +73,65 @@ const changeRiverRows = () => {
             }
         }   
     )  
-}
-setInterval(changeRiverRows, 2000)
+}, 2000)
+
+const changeFifthRow = setInterval(() => {
+    fifthRow.forEach(
+        (cell) => {
+            if(cell.classList.contains('rubber-dingy')){
+                cell.classList.remove('rubber-dingy')
+                cell.classList.add('river')
+            }else if(cell.classList.contains('river')){
+                cell.classList.remove('river')
+                cell.classList.add('rubber-dingy')
+            }
+        }   
+    )  
+}, 1500)
+
+const changeSixthRow = setInterval(() => {
+    sixthRow.forEach(
+        (cell) => {
+            if(cell.classList.contains('rubber-dingy')){
+                cell.classList.remove('rubber-dingy')
+                cell.classList.add('river')
+            }else if(cell.classList.contains('river')){
+                cell.classList.remove('river')
+                cell.classList.add('rubber-dingy')
+            }
+        }   
+    )  
+}, 750)
+
+let index = 30 
+const changeSeventhRow = setInterval(() => {
+            // if(index > 29 && index <= 39){
+            //     if(cells[39].classList.contains('rubber-dingy')){
+            //         cells[39].classList.remove('rubber-dingy')
+            //         cells[39].classList.add('river')
+            //         cells[30].classList.add('rubber-dingy')
+            //         index = 30
+            //     }else if(cells[index].classList.contains('rubber-dingy')){
+            //         cells[index].classList.remove('rubber-dingy')
+            //         index += 1
+            //         cells[index].classList.add('rubber-dingy')
+            //     }
+            // }
+
+            seventhRow.forEach(
+                (cell) => {
+                    if(cell.classList.contains('rubber-dingy')){
+                        cell.classList.remove('rubber-dingy')
+                        cell.classList.add('river')
+                    }else if(cell.classList.contains('river')){
+                        cell.classList.remove('river')
+                        cell.classList.add('rubber-dingy')
+                    }
+
+                }
+            )                 
+}, 2500)
+
 
 cells[10].classList.add('puppy-snatcher')
 let i = 10
