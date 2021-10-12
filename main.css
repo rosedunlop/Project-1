@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  background-color: #89cff0;
+  font-family: "Indie Flower", cursive;
 }
 header {
   text-align: center;
@@ -32,10 +34,10 @@ main {
   grid-template-rows: repeat(10, 1fr);
   height: 700px;
   width: 700px;
+  border: solid 30px pink;
+  border-radius: 20px;
 }
-.grid div {
-  border: 1px solid black;
-}
+
 footer {
   display: flex;
   flex-direction: row;
@@ -49,14 +51,22 @@ footer {
   padding-top: 20px;
 }
 .river {
-  background-color: cornflowerblue;
+  background-size: cover;
+  background-color: rgb(74, 146, 241);
+}
+#wave {
+  background-image: url();
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .free {
   background-color: green;
 }
 .obstacle {
-  background-image: url();
-  background-color: red;
+  background-image: url(./images/bear.png);
+  background-repeat: none;
+  background-size: cover;
+  background-color: green;
 }
 .rubber-dingy::before {
   content: "";
@@ -68,15 +78,19 @@ footer {
   width: 90%;
   border-radius: 50%;
 }
-
 .puppy-snatcher {
-  background-image: url();
-  background-color: black;
+  background-image: url(./images/horror-snatcher.png);
+  background-repeat: none;
+  background-size: cover;
 }
 .puppy {
-  background-color: pink;
-  background-size: contain;
+  background-image: url(./images/puppy1.png);
+  background-size: cover;
+  z-index: 1;
 }
 .kennel {
-  background-color: blueviolet;
+  background-image: url(./images/kennel.png);
+  background-repeat: none;
+  background-size: cover;
+  background-color: green;
 }
