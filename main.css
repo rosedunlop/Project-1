@@ -24,7 +24,6 @@ main {
   height: 300px;
   position: relative;
   left: 100px;
-  top: 20px;
 }
 .button-container {
   display: flex;
@@ -35,7 +34,21 @@ main {
   border-radius: 20px;
   padding: 20px;
   position: relative;
-  bottom: 50px;
+  bottom: 60px;
+}
+.start-button,
+.restart-button {
+  width: 150px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 20px;
+  font-size: 20px;
+}
+.start-button:hover {
+  background-color: pink;
+}
+.restart-button:hover {
+  background-color: pink;
 }
 .game-rules {
   border: 10px solid pink;
@@ -46,7 +59,7 @@ main {
   padding: 20px;
   font-size: 20px;
   position: relative;
-  bottom: 40px;
+  bottom: 50px;
 }
 
 .game-rules h2 {
