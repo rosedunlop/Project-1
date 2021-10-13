@@ -63,6 +63,17 @@ const seventhRow = document.querySelectorAll('.row-seven')
 
 const grabButton = document.querySelector('.start-button')
 const grabResetButton = document.querySelector('.restart-button')
+const startAudio = document.querySelector('audio')
+
+function playAudio(){
+    startAudio.play()
+}
+
+const changeAudio = (input) => {
+    let noise = volume.value / 10
+    startAudio.volume = noise
+}
+
 
 function startGame (){
     
@@ -228,7 +239,7 @@ function startGame (){
               lives -= 1
               grabLives.textContent = `${lives}`
               grabResult.textContent = `You lost a life! You have ${lives} lives left.`
-    
+              move(95)
             } else if(lives === 0) {
                 grabResult.textContent = 'Game over.'
                 alert('Game Over!')
@@ -325,6 +336,9 @@ function startGame (){
     }
     
     grabButton.addEventListener('click', startGame)
+    grabButton.addEventListener('click', playAudio)
+
+    volume.addEventListener('input', changeAudio)
 
     function restartGame (){
     window.location.reload();
@@ -332,6 +346,7 @@ function startGame (){
     }
 
     grabResetButton.addEventListener('click', restartGame)
+
 
 
     

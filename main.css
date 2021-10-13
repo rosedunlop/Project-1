@@ -25,12 +25,23 @@ main {
   position: relative;
   left: 100px;
 }
+.volume-container {
+  position: relative;
+  bottom: 50px;
+  left: 130px;
+}
+label {
+  font-size: 20px;
+  position: relative;
+  bottom: 8px;
+  right: 8px;
+}
 .button-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 20px;
-  border: solid 10px pink;
+  /* border: solid 10px pink; */
   border-radius: 20px;
   padding: 20px;
   position: relative;
