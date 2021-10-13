@@ -30,6 +30,27 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 20px;
+  border: solid 10px pink;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  bottom: 50px;
+}
+.game-rules {
+  border: 10px solid pink;
+  border-radius: 20px;
+  width: 500px;
+  height: 600px;
+  color: black;
+  padding: 20px;
+  font-size: 20px;
+  position: relative;
+  bottom: 40px;
+}
+
+.game-rules h2 {
+  text-align: center;
 }
 
 .grid {

@@ -1,4 +1,4 @@
-const rowOne = ['free', 'free', 'free', 'free', 'kennel', 'free', 'free', 'free', 'free', 'free']
+const rowOne = ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free']
 const rowTwo = ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free']
 const rowThree = ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free']
 let rowFour = []
@@ -90,7 +90,8 @@ function startGame (){
                             grabResult.textContent = 'Game Over.'
                             cells[currentIndex].classList.remove('puppy')
                             move(95)
-                            alert('Game Over.')      
+                            alert('Game Over.')
+                            cells[95].classList.remove('puppy')      
                             return   
                     }       
                     }
@@ -129,7 +130,6 @@ function startGame (){
         moveDingysOnRow(sixthRow)  
     }, 750)
     
-    let index = 30 
     const changeSeventhRow = setInterval(() => {
         moveDingysOnRow(seventhRow)               
     }, 2500)
@@ -162,6 +162,7 @@ function startGame (){
                 cells[i].classList.remove('puppy')
                 grabResult.textContent = 'Game Over.'
                 alert('Game Over.')
+                restartGame()
                 return
               }
               else{
@@ -173,8 +174,29 @@ function startGame (){
     }
     setInterval(moveSnatcher, 500)
     
-    
-    // Here I am declaring where the player will start - in a let as it needs to be able to change:
+    cells[4].classList.add('kennel')
+    let index = 4
+    const moveKennel = () => {
+         if(index >= 0 && index <= 9){
+             if(cells[9].classList.contains('kennel')){
+                 cells[9].classList.remove('kennel')
+                 cells[0].classList.add('kennel')
+                 index = 0
+             }else{
+                cells[index].classList.remove('kennel')
+                 index += 1
+                 cells[index].classList.add('kennel')
+            }
+     }
+     if(cells[index].classList.contains('puppy') && cells[index].classList.contains('kennel')){
+         cells[index].classList.remove('puppy')
+         alert('You win! Poppy has been safely returned to her kennel.')
+         grabResult.textContent = 'You Win! Poppy has been safely returned to her kennel.'
+         restartGame()
+         return
+     }
+     }
+    setInterval(moveKennel, 2000)
     
     
     // Now when a key is pressed and I want the player to move I will create a function where it removes from the old position to new one:
@@ -210,6 +232,7 @@ function startGame (){
             } else if(lives === 0) {
                 grabResult.textContent = 'Game over.'
                 alert('Game Over!')
+                restartGame()
             }
             return
         }else if(newCell.classList.contains('river') && !newCell.classList.contains('rubber-dingy')){
@@ -218,9 +241,11 @@ function startGame (){
                lives -= 1
                grabLives.textContent = `${lives}`
                grabResult.textContent = `You lost a life! You have ${lives} lives left.`
+               move(95)
             } else if (lives === 0) {
                 grabResult.textContent = 'Game over.'
                 alert('Game Over!')
+                restartGame()
             }
             return
         } else if (newCell.classList.contains('puppy-snatcher')){
@@ -229,10 +254,18 @@ function startGame (){
                lives -= 1
                grabLives.textContent = `${lives}` 
                grabResult.textContent = `You lost a life! You have ${lives} lives left.`
+               move(95)
             } else if (lives === 0) {
                 grabResult.textContent = 'Game Over.'
                 alert('Game Over!')
+                restartGame()
             }
+            return
+        }else if(newCell.classList.contains('kennel') && lives > 0){
+            grabResult.textContent = 'You Win! Poppy has been safely returned to her Kennel'
+            newCell.classList.remove('puppy')
+            alert('You win! Poppy has been safely returned to her kennel')
+            restartGame()
             return
         } 
     
@@ -289,8 +322,16 @@ function startGame (){
                                 break
                             }
         })
-}
-
-
+    }
+    
     grabButton.addEventListener('click', startGame)
+
+    function restartGame (){
+    window.location.reload();
+    return false
+    }
+
+    grabResetButton.addEventListener('click', restartGame)
+
+
     
