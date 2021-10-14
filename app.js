@@ -52,7 +52,7 @@ rowSeven = changingRows.map((element, index) =>{
     }
     return 'river'
 })
-      
+
 const gridMap = rowOne.concat(rowTwo).concat(rowThree).concat(rowFour).concat(rowFive).concat(rowSix).concat(rowSeven).concat(rowEight).concat(rowNine).concat(rowTen)
 
 const cells = document.querySelectorAll('.grid div')
@@ -60,25 +60,24 @@ cells.forEach(
     (cell, i) => {
         cell.classList.add(gridMap[i])
     })
-
-
-const fourthRow = document.querySelectorAll('.row-four')
-const fifthRow = document.querySelectorAll('.row-five')
-const sixthRow = document.querySelectorAll('.row-six')
-const seventhRow = document.querySelectorAll('.row-seven')
-
-const grabButton = document.querySelector('.start-button')
-const grabResetButton = document.querySelector('.restart-button')
-const startAudio = document.querySelector('audio')
-
-function playAudio(){
-    startAudio.play()
-}
-
-const changeAudio = (input) => {
-    let noise = volume.value / 10
-    startAudio.volume = noise
-}
+    
+    const fourthRow = document.querySelectorAll('.row-four')
+    const fifthRow = document.querySelectorAll('.row-five')
+    const sixthRow = document.querySelectorAll('.row-six')
+    const seventhRow = document.querySelectorAll('.row-seven')
+    
+    const grabButton = document.querySelector('.start-button')
+    const grabResetButton = document.querySelector('.restart-button')
+    const startAudio = document.querySelector('audio')
+    
+    function playAudio(){
+        startAudio.play()
+    }
+    
+    const changeAudio = (input) => {
+        let noise = volume.value / 10
+        startAudio.volume = noise
+    }
 
 
 function startGame (){
@@ -87,7 +86,19 @@ function startGame (){
     const grabLives = document.querySelector('span')
     grabLives.textContent = `${lives}`
     const grabResult = document.querySelector('.result')
-
+    let startingPosition = 95
+    
+    const addPuppyAtStart = () => {
+        cells[startingPosition].classList.add('puppy')
+    }
+    addPuppyAtStart()
+    
+    const move = (newIndex) => {
+        cells[startingPosition].classList.remove('puppy')
+        cells[newIndex].classList.add('puppy')
+        startingPosition = newIndex
+    }
+    
     const moveDingys = 
         (cell) => {
             cell.classList.add('river')
@@ -157,12 +168,6 @@ function startGame (){
         moveDingysOnRow(seventhRow)               
     }, 2500)
     
-    let startingPosition = 95
-     // Here I have declared a function to add the puppy class to that starting position cell
-    const addPuppyAtStart = () => {
-        cells[startingPosition].classList.add('puppy')
-    }
-    addPuppyAtStart()
     
     cells[10].classList.add('puppy-snatcher')
     let i = 10
@@ -220,15 +225,7 @@ function startGame (){
      }
     setInterval(moveKennel, 2000)
     
-    
-    // Now when a key is pressed and I want the player to move I will create a function where it removes from the old position to new one:
-    const move = (newIndex) => {
-        cells[startingPosition].classList.remove('puppy')
-        cells[newIndex].classList.add('puppy')
-        startingPosition = newIndex
-    }
-    // Here I am creating the move player function which takes in a parameter of the change in Index and adds that to the startingPosition - which then moves it to that cell
-    // Here we are storing the new cell and checking if it contains an obstacle or puppy snatcher
+
     const movePlayer = (changeInIndex, isIndexAtLimit) => {
         if(lives === 0) {
             grabLives.textContent = '0'
@@ -236,18 +233,17 @@ function startGame (){
             alert('Game Over!')
             restartGame()
         }
+
         const newIndex = startingPosition + changeInIndex
         if(isIndexAtLimit(startingPosition)){
             console.log('cannot move that way - end of column/row')
             return
         }
         const newCell = cells[newIndex]
-        // Obstacles that stop player from moving
+
         if(newCell.classList.contains('obstacle')){
             lives -= 1
-            console.log('obstacle encountered')
             if(lives !== 0){
-            //   lives -= 1
               grabLives.textContent = `${lives}`
               grabResult.textContent = `You lost a life! You have ${lives} lives left.`
               move(95)
@@ -259,7 +255,6 @@ function startGame (){
             }
             return
         }else if(newCell.classList.contains('river') && !newCell.classList.contains('rubber-dingy')){
-            console.log('river encountered')
             lives -= 1
             if(lives !== 0){
                grabLives.textContent = `${lives}`
@@ -272,7 +267,6 @@ function startGame (){
             }
             return
         } else if (newCell.classList.contains('puppy-snatcher')){
-            console.log('puppy snatcher encountered')
             lives -= 1
             if (lives !== 0){
                grabLives.textContent = `${lives}` 
@@ -291,45 +285,27 @@ function startGame (){
             restartGame()
             return
         } 
-    
-        console.log(startingPosition, newIndex)
         move(newIndex)
     }
 
-    // I would make four functions for each movement:
         const handleArrowUp = () => {
-            // This would have a function to check if the player is on the top edge
-            // It would then pass the movePlayer function afterwards.
             const playerCannotMoveUp = (startingPosition) => startingPosition < 10 
             movePlayer(-10, playerCannotMoveUp) 
-            console.log('handleArrowUp')
         }
         const handleArrowDown = () => {
-            // This would have a function to check if the player is on the bottom edge
-            // It would then pass the movePlayer function afterwards.
             const playerCannotMoveDown = (startingPosition) => startingPosition > 89
-            movePlayer(+10, playerCannotMoveDown)
-            console.log('handleArrowDown')
-            
+            movePlayer(+10, playerCannotMoveDown)         
         }
         const handleArrowRight = () => {
-            // This would have a function to check if the player is on the right edge
-            // It would then pass the movePlayer function afterwards.
             const playerCannotMoveRight = (startingPosition) => (startingPosition + 1) % 10 === 0
-            movePlayer(1, playerCannotMoveRight)
-            console.log('handleArrowRight')
-            
+            movePlayer(1, playerCannotMoveRight)         
         }
         const handleArrowLeft = () => {
-            // This would have a function to check if the player is on the left edge
-            // It would then pass the movePlayer function afterwards.
             const playerCannotMoveLeft = (startingPosition) => startingPosition % 10 === 0
             movePlayer(-1, playerCannotMoveLeft)
-            console.log('handleArrowLeft')
-            
+            console.log('handleArrowLeft')        
         }
         document.addEventListener('keydown', function (event) {
-        // add an event listener to the document to listen for arrow keys:
             switch (event.key) {
                 case 'ArrowUp':
                     handleArrowUp()

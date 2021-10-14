@@ -19,6 +19,18 @@ main {
   padding-left: 20px;
   padding-right: 20px;
 }
+label {
+  font-size: 20px;
+  position: relative;
+  bottom: 8px;
+  right: 8px;
+}
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 40px;
+}
 .game-specifics {
   width: 500px;
   height: 300px;
@@ -30,18 +42,11 @@ main {
   bottom: 50px;
   left: 130px;
 }
-label {
-  font-size: 20px;
-  position: relative;
-  bottom: 8px;
-  right: 8px;
-}
 .button-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 20px;
-  /* border: solid 10px pink; */
   border-radius: 20px;
   padding: 20px;
   position: relative;
@@ -72,11 +77,9 @@ label {
   position: relative;
   bottom: 50px;
 }
-
 .game-rules h2 {
   text-align: center;
 }
-
 .grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
@@ -87,28 +90,12 @@ label {
   border-radius: 20px;
   background-color: green;
 }
-
-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding-bottom: 40px;
-}
 .lives-wrapper {
-  /* position: relative;
-  top: 20px;
-  left: 320px; */
   font-size: 25px;
   width: 50%;
   text-align: center;
 }
-span {
-}
 .result-wrapper {
-  /* position: relative;
-  right: 320px;
-  top: 25px;
-  bottom: 50px; */
   width: 50%;
   text-align: center;
   font-size: 25px;
@@ -116,11 +103,6 @@ span {
 .river {
   background-size: cover;
   background-color: rgb(74, 146, 241);
-}
-#wave {
-  background-image: url();
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 .free {
   background-color: green;
@@ -132,20 +114,6 @@ span {
   background-color: green;
   animation: nudge 1s linear infinite alternate;
 }
-
-@keyframes nudge {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(2px, 0);
-  }
-  80% {
-    transform: translate(-2px, 0);
-  }
-}
-
 .rubber-dingy {
   background-image: url(./images/rubber-dingy.png);
   background-repeat: none;
@@ -180,11 +148,37 @@ span {
   top: 85px;
   animation: rotate 1s infinite alternate;
 }
+.bone-image-one {
+  position: absolute;
+  left: 50px;
+  top: 985px;
+  padding-bottom: 20px;
+  animation: rotate 1s infinite alternate;
+}
+.bone-image-two {
+  position: absolute;
+  right: 50px;
+  top: 985px;
+  padding-bottom: 20px;
+  animation: rotate 1s infinite alternate;
+}
 @keyframes rotate {
   from {
     transform: rotate(20deg);
   }
   to {
     transform: rotate(-20deg);
+  }
+}
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(2px, 0);
+  }
+  80% {
+    transform: translate(-2px, 0);
   }
 }
