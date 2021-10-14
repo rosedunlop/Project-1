@@ -90,22 +90,26 @@ label {
 footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   padding-bottom: 40px;
 }
 .lives-wrapper {
-  position: relative;
+  /* position: relative;
   top: 20px;
-  left: 320px;
+  left: 320px; */
   font-size: 25px;
+  width: 50%;
+  text-align: center;
 }
 span {
 }
 .result-wrapper {
-  position: relative;
+  /* position: relative;
   right: 320px;
   top: 25px;
-  bottom: 50px;
+  bottom: 50px; */
+  width: 50%;
+  text-align: center;
   font-size: 25px;
 }
 .river {
