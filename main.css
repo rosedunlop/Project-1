@@ -149,3 +149,23 @@ span {
   background-size: cover;
   background-color: green;
 }
+.puppy-image {
+  position: absolute;
+  top: 70px;
+  left: 100px;
+  animation: rotate 1s infinite alternate;
+}
+.puppy-image-two {
+  position: absolute;
+  right: 100px;
+  top: 85px;
+  animation: rotate 1s infinite alternate;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(20deg);
+  }
+  to {
+    transform: rotate(-20deg);
+  }
+}

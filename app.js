@@ -230,6 +230,12 @@ function startGame (){
     // Here I am creating the move player function which takes in a parameter of the change in Index and adds that to the startingPosition - which then moves it to that cell
     // Here we are storing the new cell and checking if it contains an obstacle or puppy snatcher
     const movePlayer = (changeInIndex, isIndexAtLimit) => {
+        if(lives === 0) {
+            grabLives.textContent = '0'
+            grabResult.textContent = 'Game over.'
+            alert('Game Over!')
+            restartGame()
+        }
         const newIndex = startingPosition + changeInIndex
         if(isIndexAtLimit(startingPosition)){
             console.log('cannot move that way - end of column/row')
@@ -238,13 +244,15 @@ function startGame (){
         const newCell = cells[newIndex]
         // Obstacles that stop player from moving
         if(newCell.classList.contains('obstacle')){
+            lives -= 1
             console.log('obstacle encountered')
             if(lives !== 0){
-              lives -= 1
+            //   lives -= 1
               grabLives.textContent = `${lives}`
               grabResult.textContent = `You lost a life! You have ${lives} lives left.`
               move(95)
             } else if(lives === 0) {
+                grabLives.textContent = `${lives}`
                 grabResult.textContent = 'Game over.'
                 alert('Game Over!')
                 restartGame()
