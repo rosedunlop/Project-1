@@ -85,6 +85,7 @@ label {
   width: 700px;
   border: solid 30px pink;
   border-radius: 20px;
+  background-color: green;
 }
 
 footer {
@@ -129,6 +130,20 @@ span {
   background-repeat: none;
   background-size: cover;
   background-color: green;
+  animation: nudge 1s linear infinite alternate;
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(2px, 0);
+  }
+  80% {
+    transform: translate(-2px, 0);
+  }
 }
 
 .rubber-dingy {

@@ -260,8 +260,8 @@ function startGame (){
             return
         }else if(newCell.classList.contains('river') && !newCell.classList.contains('rubber-dingy')){
             console.log('river encountered')
+            lives -= 1
             if(lives !== 0){
-               lives -= 1
                grabLives.textContent = `${lives}`
                grabResult.textContent = `You lost a life! You have ${lives} lives left.`
                move(95)
@@ -273,8 +273,8 @@ function startGame (){
             return
         } else if (newCell.classList.contains('puppy-snatcher')){
             console.log('puppy snatcher encountered')
+            lives -= 1
             if (lives !== 0){
-               lives -= 1
                grabLives.textContent = `${lives}` 
                grabResult.textContent = `You lost a life! You have ${lives} lives left.`
                move(95)
