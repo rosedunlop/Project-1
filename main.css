@@ -148,20 +148,6 @@ footer {
   top: 85px;
   animation: rotate 1s infinite alternate;
 }
-.bone-image-one {
-  position: absolute;
-  left: 50px;
-  top: 985px;
-  padding-bottom: 20px;
-  animation: rotate 1s infinite alternate;
-}
-.bone-image-two {
-  position: absolute;
-  right: 50px;
-  top: 985px;
-  padding-bottom: 20px;
-  animation: rotate 1s infinite alternate;
-}
 @keyframes rotate {
   from {
     transform: rotate(20deg);
@@ -176,9 +162,9 @@ footer {
     transform: translate(0, 0);
   }
   50% {
-    transform: translate(2px, 0);
+    transform: translate(0, 4px);
   }
   80% {
-    transform: translate(-2px, 0);
+    transform: translate(0, 0);
   }
 }
