@@ -5,13 +5,25 @@ let rowFour = []
 let rowFive = []
 let rowSix = []
 let rowSeven = []
-const rowEight = ['free', 'obstacle', 'free', 'free', 'obstacle', 'free', 'free', 'obstacle', 'free', 'free']
-const rowNine = ['obstacle', 'free', 'free', 'obstacle', 'free', 'free', 'obstacle', 'free', 'free', 'free']
+let rowEight = []
+let rowNine = []
 const rowTen = ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free']
 
+const freeRow = Array.from({length: 10}).fill('free')
+rowEight = freeRow.map(() => {
+    if (Math.random() > 0.5){
+        return 'obstacle'    
+    }
+    return 'free'
+})
+rowNine = freeRow.map(() => {
+    if(Math.random() > 0.5){
+        return 'free'
+    }
+    return 'obstacle'
+})
 
 const changingRows = Array.from({length: 10}).fill('river')
-console.log(changingRows)
 
 rowFour = changingRows.map((element, index) =>{
     if(index % 2 === 0){
@@ -19,7 +31,6 @@ rowFour = changingRows.map((element, index) =>{
     }
     return 'rubber-dingy' 
 })
-console.log(rowFour)
 
 rowFive = changingRows.map((element, index) =>{
     if(index % 2 === 0){
@@ -27,7 +38,6 @@ rowFive = changingRows.map((element, index) =>{
     }
     return 'river'
 })
-console.log(rowFive)
 
 rowSix = changingRows.map((element, index) =>{
     if(index % 2 === 0){
@@ -35,7 +45,6 @@ rowSix = changingRows.map((element, index) =>{
     }
     return 'rubber-dingy'
 })
-console.log(rowSix)
 
 rowSeven = changingRows.map((element, index) =>{
     if(index % 2 === 0){
@@ -43,10 +52,7 @@ rowSeven = changingRows.map((element, index) =>{
     }
     return 'river'
 })
-console.log(rowSeven)
-
-
-        
+      
 const gridMap = rowOne.concat(rowTwo).concat(rowThree).concat(rowFour).concat(rowFive).concat(rowSix).concat(rowSeven).concat(rowEight).concat(rowNine).concat(rowTen)
 
 const cells = document.querySelectorAll('.grid div')
@@ -77,6 +83,11 @@ const changeAudio = (input) => {
 
 function startGame (){
     
+    let lives = 3
+    const grabLives = document.querySelector('span')
+    grabLives.textContent = `${lives}`
+    const grabResult = document.querySelector('.result')
+
     const moveDingys = 
         (cell) => {
             cell.classList.add('river')
@@ -89,7 +100,7 @@ function startGame (){
                   move(currentIndex + 1)
                   // If dingy reaches end of the row, player dies/loses a life
                   if(currentIndex % 10 === 9){
-                      if (lives > 0) {
+                      if (lives !== 0) {
                           lives -= 1
                           grabLives.textContent = `${lives}`
                           grabResult.textContent = `You lost a life! You have ${lives} lives left.`
@@ -102,7 +113,8 @@ function startGame (){
                             cells[currentIndex].classList.remove('puppy')
                             move(95)
                             alert('Game Over.')
-                            cells[95].classList.remove('puppy')      
+                            cells[95].classList.remove('puppy')
+                            restartGame()      
                             return   
                     }       
                     }
@@ -146,7 +158,6 @@ function startGame (){
     }, 2500)
     
     let startingPosition = 95
-    console.log(startingPosition)
      // Here I have declared a function to add the puppy class to that starting position cell
     const addPuppyAtStart = () => {
         cells[startingPosition].classList.add('puppy')
@@ -161,7 +172,7 @@ function startGame (){
                   cells[29].classList.remove('puppy-snatcher')
                   cells[10].classList.add('puppy-snatcher')
                   i = 10
-              }else if(cells[i].classList.contains('puppy') && lives > 0){
+              }else if(cells[i].classList.contains('puppy') && lives !== 0){
                   lives -= 1
                   grabLives.textContent = `${lives}`
                   grabResult.textContent = `You lost a life! You have ${lives} lives left.`
@@ -218,13 +229,6 @@ function startGame (){
     }
     // Here I am creating the move player function which takes in a parameter of the change in Index and adds that to the startingPosition - which then moves it to that cell
     // Here we are storing the new cell and checking if it contains an obstacle or puppy snatcher
-    
-    let lives = 3
-    const grabLives = document.querySelector('span')
-    grabLives.textContent = `${lives}`
-    const grabResult = document.querySelector('.result')
-    
-    
     const movePlayer = (changeInIndex, isIndexAtLimit) => {
         const newIndex = startingPosition + changeInIndex
         if(isIndexAtLimit(startingPosition)){
@@ -235,7 +239,7 @@ function startGame (){
         // Obstacles that stop player from moving
         if(newCell.classList.contains('obstacle')){
             console.log('obstacle encountered')
-            if(lives > 0){
+            if(lives !== 0){
               lives -= 1
               grabLives.textContent = `${lives}`
               grabResult.textContent = `You lost a life! You have ${lives} lives left.`
@@ -248,7 +252,7 @@ function startGame (){
             return
         }else if(newCell.classList.contains('river') && !newCell.classList.contains('rubber-dingy')){
             console.log('river encountered')
-            if(lives > 0){
+            if(lives !== 0){
                lives -= 1
                grabLives.textContent = `${lives}`
                grabResult.textContent = `You lost a life! You have ${lives} lives left.`
@@ -261,7 +265,7 @@ function startGame (){
             return
         } else if (newCell.classList.contains('puppy-snatcher')){
             console.log('puppy snatcher encountered')
-            if (lives > 0){
+            if (lives !== 0){
                lives -= 1
                grabLives.textContent = `${lives}` 
                grabResult.textContent = `You lost a life! You have ${lives} lives left.`

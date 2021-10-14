@@ -91,13 +91,22 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-bottom: 40px;
 }
 .lives-wrapper {
-  padding-left: 320px;
+  position: relative;
+  top: 20px;
+  left: 320px;
+  font-size: 25px;
+}
+span {
 }
 .result-wrapper {
-  padding-right: 320px;
-  padding-top: 20px;
+  position: relative;
+  right: 320px;
+  top: 25px;
+  bottom: 50px;
+  font-size: 25px;
 }
 .river {
   background-size: cover;
@@ -112,7 +121,7 @@ footer {
   background-color: green;
 }
 .obstacle {
-  background-image: url(./images/bear.png);
+  background-image: url(./images/grizzly-bear.png);
   background-repeat: none;
   background-size: cover;
   background-color: green;
