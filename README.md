@@ -69,14 +69,14 @@ My aim over the next two days of the project was to create a relatively static v
 
 ```
 
-//* const rowTen = ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free']
+const rowTen = ['free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free', 'free']
 
 ```
 
 Then after manually assigning each row and joining them together into one array, I added each class to each cell accordingly:
 
 ```
-//* const gridMap = rowOne.concat(rowTwo).concat(rowThree).concat(rowFour).concat(rowFive).concat(rowSix).concat(rowSeven).concat(rowEight).concat(rowNine).concat(rowTen)
+const gridMap = rowOne.concat(rowTwo).concat(rowThree).concat(rowFour).concat(rowFive).concat(rowSix).concat(rowSeven).concat(rowEight).concat(rowNine).concat(rowTen)
 
 const cells = document.querySelectorAll('.grid div')
 cells.forEach(
@@ -89,7 +89,7 @@ cells.forEach(
 After assigning static cell classes I decided to focus on creating the functionality where a player starts in a particular position on the grid and can be moved by the user’s keyboard. I used a switch statement to listen for which key is being pressed and it would carry out a function that would move the player up, left, right or down accordingly:
 
 ```
-//* document.addEventListener('keydown', function (event) {
+document.addEventListener('keydown', function (event) {
             switch (event.key) {
                 case 'ArrowUp':
                     handleArrowUp()
@@ -113,7 +113,7 @@ After assigning static cell classes I decided to focus on creating the functiona
 The next two days of the project I spent adding movement to the game. I had multiple obstacles that needed to be moved around the grid. First, I added movement to a puppy snatcher and the kennel poppy needed to return to. An example of this can be shown below:
 
 ```
- //* cells[10].classList.add('puppy-snatcher')
+cells[10].classList.add('puppy-snatcher')
     let i = 10
     const moveSnatcher = () => {
         if (i >= 10 && i <= 29){
@@ -152,7 +152,7 @@ Here I ensured that the obstacle was added in a certain cell at the beginning an
 Finally, I added movement to multiple rubber dinghies on the river element of the game. I knew this would be slightly more complex than the other obstacles as I needed to add the functionality to ensure that if the player was on one of the dinghies that it would move with it. For instance:
 
 ```
-//* const moveDingys =
+const moveDingys =
         (cell) => {
             cell.classList.add('river')
             cell.classList.remove('rubber-dingy')
