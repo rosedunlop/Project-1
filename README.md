@@ -11,7 +11,7 @@ Table of contents
 - Future features and improvements
 - Key learnings
 
-![](assets/images/Poppy.png)
+![](Poppy.png)
 
 # Brief
 
