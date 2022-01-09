@@ -11,7 +11,7 @@ Table of contents
 - Future features and improvements
 - Key learnings
 
-![](Poppy.png)
+![](/images/Poppy.png)
 
 # Brief
 
