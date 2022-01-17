@@ -1,6 +1,6 @@
-# Project One - Froggy
+# Project One - Frogger
 
-Table of contents
+## Table of Contents
 
 - Brief
 - Project Overview
@@ -11,16 +11,18 @@ Table of contents
 - Future features and improvements
 - Key learnings
 
+---
+
 ![](/images/Poppy.png)
 
-# Brief
+## Brief
 
 - Create a grid based game using JavaScript.
 - The game must have winning and losing states and it must visually display when the player has either won or lost the game.
 - Allow for restarting the game.
 - Deploy your game online.
 
-# Project Overview
+## Project Overview
 
 Frogger is a 1981 arcade action game launched by Sega. The aim of the game is to guide the frogs back to their home, having to cross a busy road and river with multiple hazards along the way.
 
@@ -28,11 +30,11 @@ This was my first Project after three weeks into General Assembly’s immersive 
 
 I decided to put my own spin on Frogger and based it around saving ‘Poppy the Puppy’, who had to cross a river and other obstacles to get back to her kennel.
 
-Play Save Poppy The Puppy here: https://rosedunlop.github.io/Froggy/
+**Play Save Poppy The Puppy here:** https://rosedunlop.github.io/Froggy/
 
 ![](/images/Game.png)
 
-# Technologies Used
+## Technologies Used
 
 - HTML5
 - CSS3 with animation
@@ -40,7 +42,7 @@ Play Save Poppy The Puppy here: https://rosedunlop.github.io/Froggy/
 - Git
 - GitHub
 
-# Approach Taken
+## Approach Taken
 
 Key Dates
 
@@ -200,21 +202,21 @@ Here I added some logic in the movePlayer function which ensured that when an ob
 
 In the final two days of the project I focussed on styling, animations, small bug fixes and extra features such as audio and a volume bar. I also spent time on the last day trying to tidy up my code and removing console logs.
 
-# Bugs
+## Bugs
 
 - There were a few small bugs that I had to iron out throughout the project creation, but I found that focussing on trying to maintain making a simple game throughout and not trying to over complicate my code helped me solve these.
 - One of the main bugs I had to solve was based around the score functionality. I had this issue where the player could end up having another go even though they had zero lives left. This delay in the scoring system took some time to solve but I was able to overcome this relatively quickly by testing and methodically checking my code.
 
-# Wins and Challenges
+## Wins and Challenges
 
 - The biggest challenge for me was getting multiple dinghies to move along the river. However, after figuring out that I could filter each row array for the dinghy and then move each of those up a cell, using the same function, I was able to move past this point.
 - The biggest win for me was taking myself out of my comfort zone and building a game which I found quite daunting to begin with. I ended up really learning and consolidating all I had learnt about JavaScript in the first three weeks of the course.
 
-# Future Content and Improvements
+## Future Content and Improvements
 
 - In the future I would like to add multiple levels to add a higher level of complexity to the game.
 - I would also like to make the grid bigger in size to add multiple obstacles to increase the game’s difficulty.
 
-# Key Learnings
+## Key Learnings
 
 - One of the key things I took from my first project is really spending a good amount of time planning. I found that by listing every single feature I wanted to be in the game before I even started really prevented me from going off track and adding content which was unnecessary and would merely over complicate my code.
