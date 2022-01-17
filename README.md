@@ -30,6 +30,8 @@ I decided to put my own spin on Frogger and based it around saving ‘Poppy the 
 
 Play Save Poppy The Puppy here: https://rosedunlop.github.io/Froggy/
 
+![](/images/Game.png)
+
 # Technologies Used
 
 - HTML5
@@ -53,15 +55,15 @@ I spent the first day of the project planning the game in as much detail as I po
 Checklist:
 
 - Create a 10 by 10 grid containing 100 cells.
-- Each cell will have a particular class e.g. river, puppy, obstacle
-- Create keyboard event listeners for the player to be able to move around the grid
+- Each cell will have a particular class e.g. river, puppy, obstacle.
+- Create keyboard event listeners for the player to be able to move around the grid.
 - Ensure that the player cannot move off the grid when it reaches the end of a row/column.
-- Start game and restart game logic
-- Adding movement to the obstacles on the grid
+- Start game and restart game logic.
+- Adding movement to the obstacles on the grid.
 - Score implementation - having a certain amount of lives.
-- Winning and losing states
-- Obstacle collision functionality
-- Styling
+- Winning and losing states.
+- Obstacle collision functionality.
+- Styling.
 
 ### Day 2-3:
 
