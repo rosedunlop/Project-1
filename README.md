@@ -188,13 +188,28 @@ const moveDingys =
 
 ```
 
-Inside of this moveDignys function, it made a check to see if the player was in the same cell as a dinghy, it would move the player from its current index plus one and the same with the rubber dinghy. Furthermore, it also ensured that if the rubber dinghy reached the end of the grid, the player would die and lose a life if it had any left.
+Inside of this moveDingys function, it made a check to see if the player was in the same cell as a dinghy, it would move the player from its current index plus one and the same with the rubber dinghy. Furthermore, it also ensured that if the rubber dinghy reached the end of the grid, the player would die and lose a life if it had any left.
 
 ### Day 6:
 
 After finishing all the obstacle movement in the game, I then focussed on creating winning and losing states, where if the player came into an obstacle or fell off the grid it would lose a life or reached the kennel it would win the game. This can be shown in the example below:
 
-(code here)
+```
+
+ if(newCell.classList.contains('obstacle')){
+            lives -= 1
+            if(lives !== 0){
+              grabLives.textContent = `${lives}`
+              grabResult.textContent = `You lost a life! You have ${lives} lives left.`
+              move(95)
+            } else if(lives === 0) {
+                grabLives.textContent = `${lives}`
+                grabResult.textContent = 'Game over.'
+                alert('Game Over!')
+                restartGame()
+            }
+
+```
 
 Here I added some logic in the movePlayer function which ensured that when an obstacle is encountered and the player has more than zero lives, the player moves back to their starting position and they lose a life. It also ensures that if they have no lives left, the game is lost and restarted accordingly. I also added some start and restart game functionality, which I displayed on the front end as two different buttons.
 
