@@ -30,7 +30,7 @@ This was my first Project after three weeks into General Assembly’s immersive 
 
 I decided to put my own spin on Frogger and based it around saving ‘Poppy the Puppy’, who had to cross a river and other obstacles to get back to her kennel.
 
-**Play Save Poppy The Puppy here:** https://rosedunlop.github.io/Froggy/
+**Play Save Poppy The Puppy here:** https://rosedunlop.github.io/Project-1/
 
 ![](/images/Game.png)
 
